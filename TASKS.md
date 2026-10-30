@@ -30,3 +30,13 @@ Reglas para el Agente:
   - [x] En el panel de Admin, crear interfaz para registrar un `LingoModule` atado a un `class_topic`.
   - [x] Crear interfaz para subir un archivo MP3/WAV a `lingo_audios` al crear un ejercicio tipo `LISTENING`.
   - [x] Dejar el esquema JSON de los ejercicios preparado en un Route Handler para una futura inyección directa desde la API de OpenAI.
+
+- [ ] **Fase 6: Deploy (Vercel + Supabase Cloud, planes gratuitos)**
+  - [ ] Crear proyecto en Supabase Cloud; `supabase link` + `supabase db push` (migraciones, RLS, bucket `lingo_audios`).
+  - [ ] Subir los audios seed al Storage de producción.
+  - [ ] Conectar el repo a Vercel (Hobby); configurar `NEXT_PUBLIC_SUPABASE_URL` y la anon key (solo esas variables, no copiar el `.env` local).
+  - [ ] Documentar los pasos de deploy en `RUNBOOK.md`.
+  - Notas:
+    - Vercel Hobby no permite uso comercial → si los alumnos pagan: Vercel Pro ($20/mes) o Netlify/Cloudflare Pages (gratis, comercial OK).
+    - Supabase Free pausa el proyecto tras 7 días sin actividad → reanudar desde el dashboard o subir a Pro ($25/mes).
+    - Límite de 1 GB de Storage en Supabase Free (audios TTS).
