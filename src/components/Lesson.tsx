@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLessonStore, type Exercise } from "@/store/lessonStore";
 import LessonHeader from "./LessonHeader";
+import LessonSuccess from "./LessonSuccess";
 import MultipleChoiceExercise from "./exercises/MultipleChoiceExercise";
 import FillBlankExercise from "./exercises/FillBlankExercise";
 import ListeningExercise from "./exercises/ListeningExercise";
@@ -19,6 +19,8 @@ export default function Lesson({ exercises }: { exercises: Exercise[] }) {
   const [listo, setListo] = useState(false);
   const [respuesta, setRespuesta] = useState("");
   const [intento, setIntento] = useState(0); // remounts the exercise so a requeued one starts clean
+  // ponytail: randomUUID needs a secure context (https/localhost); a LAN-IP http dev URL won't have it.
+  const [completionId] = useState(() => crypto.randomUUID());
   // The store advances on responder(); keep the answered exercise on screen until "Continuar".
   const [feedback, setFeedback] = useState<{ exercise: Exercise; correcta: boolean } | null>(null);
 
@@ -32,18 +34,8 @@ export default function Lesson({ exercises }: { exercises: Exercise[] }) {
   const progreso = 1 - ejerciciosPendientes.length / exercises.length;
   const mostrado = feedback?.exercise ?? ejercicioActual;
 
-  // ponytail: placeholder end screen; Phase 4 replaces it with the real Success screen.
   if (!mostrado) {
-    return (
-      <div className="flex flex-1 flex-col items-center justify-center gap-4 p-4 text-center">
-        <p className="text-6xl">🎉</p>
-        <h1 className="text-3xl font-bold">¡Lección completada!</h1>
-        <p className="text-xl font-semibold text-orange-500">+{xpAcumulada} XP</p>
-        <Link href="/" className="mt-8 w-full rounded-2xl bg-green-500 p-4 text-lg font-bold text-white">
-          Volver
-        </Link>
-      </div>
-    );
+    return <LessonSuccess moduleId={exercises[0].module_id} completionId={completionId} xpLocal={xpAcumulada} />;
   }
 
   const Ejercicio = COMPONENTES[mostrado.type];

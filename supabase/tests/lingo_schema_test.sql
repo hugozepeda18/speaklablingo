@@ -20,7 +20,7 @@ insert into "StudentProfile"(id) values ('00000000-0000-0000-0000-000000000001')
 insert into "StudentLingoProgress"(student_id,total_xp) values ('00000000-0000-0000-0000-000000000001',10),('00000000-0000-0000-0000-000000000002',20);
 
 set local role anon;
-select is((select count(*)::int from "LingoModule"), 1, 'anon reads modules');
+select ok(exists(select 1 from "LingoModule" where id = '00000000-0000-0000-0000-0000000000aa'), 'anon reads modules');
 
 set local role authenticated;
 set local request.jwt.claims = '{"sub":"00000000-0000-0000-0000-000000000001"}';

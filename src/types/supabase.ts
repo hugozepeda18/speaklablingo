@@ -123,7 +123,11 @@ isOneToOne: true
             [_ in never]: never
           }
           Functions: {
-            [_ in never]: never
+            "complete_lingo_module":
+{ Args: { "p_completion_id": string,"p_module_id": string,"p_student_id": string,"p_today": string }; Returns: {
+              "current_streak": number,"streak_anterior": number,"total_xp": number,"xp_ganada": number
+            }[]
+                           }
           }
           Enums: {
             "lingo_cefr_level": "A1"|"A2"|"B1"|"B2","lingo_exercise_type": "MULTIPLE_CHOICE"|"FILL_BLANK"|"LISTENING","lingo_language": "EN"|"FR"|"IT"|"PT"|"DE"

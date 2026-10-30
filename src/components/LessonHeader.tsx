@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 export default function LessonHeader({ progress }: { progress: number }) {
-  const [streak, setStreak] = useState(0);
+  const [streak, setStreak] = useState<number | null>(null); // null = loading / no session
 
   useEffect(() => {
     supabase.auth.getUser().then(async ({ data }) => {
@@ -36,8 +36,8 @@ export default function LessonHeader({ progress }: { progress: number }) {
           style={{ width: `${progress * 100}%` }}
         />
       </div>
-      <span className="font-bold text-orange-500" aria-label={`Racha de ${streak} días`}>
-        🔥 {streak}
+      <span className="font-bold text-orange-500" aria-label={`Racha de ${streak ?? 0} días`}>
+        🔥 {streak ?? "–"}
       </span>
     </header>
   );

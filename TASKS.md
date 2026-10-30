@@ -21,10 +21,10 @@ Reglas para el Agente:
   - [x] Construir componente `FillBlankExercise` (Renderizado de texto con inputs integrados).
   - [x] Construir componente `ListeningExercise` (Botón de reproducción de audio grande, seguido de opciones de respuesta).
 
-- [ ] **Fase 4: Sincronización Backend y Gamificación**
-  - [ ] Crear Route Handler para procesar el final del módulo (cuando `ejerciciosPendientes` está vacío).
-  - [ ] Actualizar `total_xp`, calcular la lógica de `current_streak` y actualizar `last_practice_date`.
-  - [ ] Construir pantalla de "Success" mostrando el aumento de la racha y XP ganado.
+- [x] **Fase 4: Sincronización Backend y Gamificación**
+  - [x] Crear Route Handler para procesar el final del módulo (cuando `ejerciciosPendientes` está vacío).
+  - [x] Actualizar `total_xp`, calcular la lógica de `current_streak` y actualizar `last_practice_date`.
+  - [x] Construir pantalla de "Success" mostrando el aumento de la racha y XP ganado.
 
 - [ ] **Fase 5: Dashboard del Profesor (Integración SpeakLab)**
   - [ ] En el panel de Admin, crear interfaz para registrar un `LingoModule` atado a un `class_topic`.
