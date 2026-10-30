@@ -118,7 +118,13 @@ enabled = true
 # The maximum file size allowed (e.g. "5MB", "500KB").
 file_size_limit = "50MiB"
 
-# Uncomment to configure local storage buckets
+# Local-only: `supabase seed buckets` uploads demo audio. The real bucket is created by migration.
+[storage.buckets.lingo_audios]
+public = true
+file_size_limit = "10MiB"
+allowed_mime_types = ["audio/mpeg", "audio/mp3", "audio/wav", "audio/x-wav", "audio/wave"]
+objects_path = "./seed/lingo_audios"
+
 # [storage.buckets.images]
 # public = false
 # file_size_limit = "50MiB"

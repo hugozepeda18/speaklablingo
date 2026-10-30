@@ -32,11 +32,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-neutral-100`}
       >
-        {children}
+        {/* Phone-width frame (iPhone Pro Max = 430px) so desktop dev matches mobile. */}
+        <main className="mx-auto flex min-h-dvh max-w-[430px] flex-col bg-white text-neutral-900">
+          {children}
+        </main>
       </body>
     </html>
   );

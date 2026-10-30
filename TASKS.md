@@ -15,11 +15,11 @@ Reglas para el Agente:
   - [x] Configurar store de Zustand para manejar: `ejerciciosPendientes`, `ejercicioActual`, y `xpAcumulada`.
   - [x] Escribir la lógica de validación: si es correcta, remover del store; si es incorrecta, mover al final de la cola de `ejerciciosPendientes`.
 
-- [ ] **Fase 3: Interfaz Core (Mobile-First UI)**
-  - [ ] Construir layout base de la PWA (Header con Racha actual de fuego 🔥, barra de progreso superior).
-  - [ ] Construir componente `MultipleChoiceExercise`.
-  - [ ] Construir componente `FillBlankExercise` (Renderizado de texto con inputs integrados).
-  - [ ] Construir componente `ListeningExercise` (Botón de reproducción de audio grande, seguido de opciones de respuesta).
+- [x] **Fase 3: Interfaz Core (Mobile-First UI)**
+  - [x] Construir layout base de la PWA (Header con Racha actual de fuego 🔥, barra de progreso superior).
+  - [x] Construir componente `MultipleChoiceExercise`.
+  - [x] Construir componente `FillBlankExercise` (Renderizado de texto con inputs integrados).
+  - [x] Construir componente `ListeningExercise` (Botón de reproducción de audio grande, seguido de opciones de respuesta).
 
 - [ ] **Fase 4: Sincronización Backend y Gamificación**
   - [ ] Crear Route Handler para procesar el final del módulo (cuando `ejerciciosPendientes` está vacío).
