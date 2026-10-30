@@ -12,8 +12,8 @@ Reglas para el Agente:
   - [x] Implementar políticas RLS para lectura pública de módulos/ejercicios y escritura segura de progreso por alumno.
 
 - [x] **Fase 2: Motor de Estado de la Lección (Zustand sin Vidas)**
-  - [ ] Configurar store de Zustand para manejar: `ejerciciosPendientes`, `ejercicioActual`, y `xpAcumulada`.
-  - [ ] Escribir la lógica de validación: si es correcta, remover del store; si es incorrecta, mover al final de la cola de `ejerciciosPendientes`.
+  - [x] Configurar store de Zustand para manejar: `ejerciciosPendientes`, `ejercicioActual`, y `xpAcumulada`.
+  - [x] Escribir la lógica de validación: si es correcta, remover del store; si es incorrecta, mover al final de la cola de `ejerciciosPendientes`.
 
 - [ ] **Fase 3: Interfaz Core (Mobile-First UI)**
   - [ ] Construir layout base de la PWA (Header con Racha actual de fuego 🔥, barra de progreso superior).
