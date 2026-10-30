@@ -23,6 +23,7 @@ npm run dev
 ## 4. Notas locales
 * El stack local usa los puertos **547xx** (API `http://127.0.0.1:54721`, Studio `:54723`) para no chocar con otros proyectos Supabase.
 * `supabase db reset` aplica migraciones, `seed.sql` y sube el audio demo de `supabase/seed/lingo_audios/`.
+* Demo por idioma: `npm run dev:en|dev:fr|dev:it|dev:pt|dev:de` (o `DEMO_LANG=IT npm run dev`) muestra solo ese idioma en el inicio. `npm run dev` muestra todos.
 * Tests: `supabase test db` (SQL/RLS) y `npm test` (store de la lección).
 * `.env.local` necesita también `SUPABASE_SERVICE_ROLE_KEY` (solo servidor).
 

@@ -4,6 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:en": "DEMO_LANG=EN next dev",
+    "dev:fr": "DEMO_LANG=FR next dev",
+    "dev:it": "DEMO_LANG=IT next dev",
+    "dev:pt": "DEMO_LANG=PT next dev",
+    "dev:de": "DEMO_LANG=DE next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

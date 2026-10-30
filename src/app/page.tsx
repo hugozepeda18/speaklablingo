@@ -1,12 +1,15 @@
 import Link from "next/link";
 import { supabase } from "@/lib/supabase";
+import type { Enums } from "@/types/supabase";
 
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { data: modules, error } = await supabase
-    .from("LingoModule")
-    .select("id, title, class_topic, language, cefr_level");
+  let query = supabase.from("LingoModule").select("id, title, class_topic, language, cefr_level");
+  // DEMO_LANG=IT npm run dev → only that language's modules (for showcasing to a student)
+  const lang = process.env.DEMO_LANG?.toUpperCase() as Enums<"lingo_language"> | undefined;
+  if (lang) query = query.eq("language", lang);
+  const { data: modules, error } = await query;
   if (error) throw error;
 
   return (
