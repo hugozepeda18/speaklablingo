@@ -1,20 +1,13 @@
-import { createClient } from "@supabase/supabase-js";
 import type { Database } from "@/types/supabase";
-
 // Service role: the only writer of StudentLingoProgress / LingoCompletionLog (see RLS migration).
-const admin = createClient<Database>(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  { auth: { persistSession: false } },
-);
+import { admin, usuarioDe } from "@/lib/supabaseAdmin";
 
 export type CompletarResponse = Database["public"]["Functions"]["complete_lingo_module"]["Returns"][number];
 
 // POST /api/modulos/:id/completar  { completionId: uuid, timeZone: "America/Mexico_City" }
 export async function POST(req: Request, { params }: { params: { id: string } }) {
-  const token = req.headers.get("authorization")?.replace(/^Bearer /, "");
-  const { data: auth } = token ? await admin.auth.getUser(token) : { data: { user: null } };
-  if (!auth.user) return Response.json({ error: "No autenticado" }, { status: 401 });
+  const user = await usuarioDe(req);
+  if (!user) return Response.json({ error: "No autenticado" }, { status: 401 });
 
   const body = await req.json().catch(() => ({}));
   let hoy: string;
@@ -28,7 +21,7 @@ export async function POST(req: Request, { params }: { params: { id: string } })
   const { data, error } = await admin
     .rpc("complete_lingo_module", {
       p_completion_id: body.completionId,
-      p_student_id: auth.user.id,
+      p_student_id: user.id,
       p_module_id: params.id,
       p_today: hoy,
     })

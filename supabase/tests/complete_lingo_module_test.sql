@@ -18,7 +18,7 @@ select is(pg_temp.c(2, '2026-01-10')::text, '(20,40,1,1)', 'same day: XP only, s
 select is(pg_temp.c(3, '2026-01-11')::text, '(20,60,1,2)', 'next day: streak +1');
 select is(pg_temp.c(4, '2026-01-12')::text, '(20,80,2,3)', 'next day again: streak +1');
 select is(pg_temp.c(5, '2026-01-14')::text, '(20,100,3,1)', 'skipped a day: streak resets to 1');
-select is((select count(*)::int from "LingoCompletionLog"), 5, 'one log row per distinct completion');
+select is((select count(*)::int from "LingoCompletionLog" where student_id = '00000000-0000-0000-0000-000000000001'), 5, 'one log row per distinct completion');
 select throws_ok($$select pg_temp.c(6, '2026-01-15') from (select set_config('role','authenticated',true)) s$$,
   '42501', null, 'students cannot call it directly');
 reset role;

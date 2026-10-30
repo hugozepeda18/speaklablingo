@@ -26,7 +26,7 @@ Reglas para el Agente:
   - [x] Actualizar `total_xp`, calcular la lógica de `current_streak` y actualizar `last_practice_date`.
   - [x] Construir pantalla de "Success" mostrando el aumento de la racha y XP ganado.
 
-- [ ] **Fase 5: Dashboard del Profesor (Integración SpeakLab)**
-  - [ ] En el panel de Admin, crear interfaz para registrar un `LingoModule` atado a un `class_topic`.
-  - [ ] Crear interfaz para subir un archivo MP3/WAV a `lingo_audios` al crear un ejercicio tipo `LISTENING`.
-  - [ ] Dejar el esquema JSON de los ejercicios preparado en un Route Handler para una futura inyección directa desde la API de OpenAI.
+- [x] **Fase 5: Dashboard del Profesor (Integración SpeakLab)**
+  - [x] En el panel de Admin, crear interfaz para registrar un `LingoModule` atado a un `class_topic`.
+  - [x] Crear interfaz para subir un archivo MP3/WAV a `lingo_audios` al crear un ejercicio tipo `LISTENING`.
+  - [x] Dejar el esquema JSON de los ejercicios preparado en un Route Handler para una futura inyección directa desde la API de OpenAI.

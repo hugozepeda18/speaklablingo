@@ -127,6 +127,12 @@ isOneToOne: true
 { Args: { "p_completion_id": string,"p_module_id": string,"p_student_id": string,"p_today": string }; Returns: {
               "current_streak": number,"streak_anterior": number,"total_xp": number,"xp_ganada": number
             }[]
+                           },
+"create_lingo_module":
+{ Args: { "p": Json }; Returns: string
+                           },
+"is_lingo_admin":
+{ Args: Record<PropertyKey, never>; Returns: boolean
                            }
           }
           Enums: {
